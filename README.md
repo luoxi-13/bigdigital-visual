@@ -8,15 +8,31 @@
 [![Pillow](https://img.shields.io/badge/Pillow-9.0%2B-4B8BBE?style=for-the-badge)](https://pillow.readthedocs.io/)
 [![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org/)
 [![Charts](https://img.shields.io/badge/Charts-30-F5C353?style=for-the-badge&logoColor=white)](#overview)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-7%20Interactive%20Charts-FFC000?style=for-the-badge&logo=github&logoColor=1A1E43)](https://luoxi-13.github.io/bigdigital-visual/)
 [![Pixel Perfect](https://img.shields.io/badge/Pixel-Perfect-11A7AD?style=for-the-badge)](#how)
 
 <br>
 
 **用 Pillow 一笔一画绘制的 30 张深蓝商务图表 · 逐像素对齐参考图 · 每个 Cell 独立可运行**
 
-[作品总览](#overview) · [精选特写](#featured) · [分章图集](#gallery) · [快速开始](#start) · [实现要点](#how)
+[作品总览](#overview) · [精选特写](#featured) · [分章图集](#gallery) · [**在线交互演示 ↗**](https://luoxi-13.github.io/bigdigital-visual/) · [快速开始](#start) · [实现要点](#how)
 
 </div>
+
+---
+
+<a name="about"></a>
+## ✨ 关于本项目
+
+这不是用 ECharts 或 matplotlib 生成的常规图表，而是直接在画布上**用 Pillow 绘制**的一套商业数据可视化作品集：柱形、折线、双向条形、甘特图、饼图、南丁格尔玫瑰图、渐变圆环、水波球、多层弧形、仪表盘、子弹图、进度条……每一张都完整包含**主标题 + 洞察式副标题 + 数据标签 + 底部注释**，拿来就能放进汇报或仪表盘。
+
+| <div align="center">📊 **30 张**<br>成品图表</div> | <div align="center">⚡ **7 张**<br>动态交互图表</div> | <div align="center">📓 **4 个**<br>Jupyter Notebook</div> | <div align="center">🧩 **12+ 种**<br>图表类型</div> | <div align="center">🎯 **1 : 1**<br>参考图对齐</div> |
+| :---: | :---: | :---: | :---: | :---: |
+
+- **纯 Pillow 绘制** — 不依赖任何绘图框架，几何、渐变、文字排版全部由 `ImageDraw` 完成
+- **单元自包含** — 每个 Cell 自带 import、字体加载与绘图函数，单独拎出来也能跑出完整图
+- **输出即成品** — 运行后 `display(out)` 内嵌显示，同时保存独立 PNG 文件
+- **统一视觉语言** — 深蓝底 `#1A1E43`，五色数据色板，标题 / 副标题 / 注释三段式版式
 
 ---
 
@@ -84,6 +100,48 @@
 
 ---
 
+<a name="dynamic"></a>
+## ⚡ 第三章 · 动态交互图表（在线演示）
+
+> 把 Excel 的组合框、选项按钮、复选框、切片器与 VBA 宏，还原成浏览器里真正可操作的 7 张动态图表
+
+<div align="center">
+
+[![Open Interactive Dashboard](https://img.shields.io/badge/Open%20Interactive%20Dashboard-7%20Live%20Charts-FFC000?style=for-the-badge&logo=github&logoColor=1A1E43)](https://luoxi-13.github.io/bigdigital-visual/)
+
+<sub>悬停查看数值 · 框选缩放 · 图例开关 · 下拉 / 滑块切换 · 播放动画 · Tab 切换 7 个案例</sub>
+
+</div>
+
+<img src="assets/dynamic-overview.jpg" alt="7 张动态交互图表总览" />
+
+<div align="center"><sub>第三章 01 — 07 · 下表「大图」列可点开单张原始图</sub></div>
+
+| # | 图表 | 交互方式 | 对应 Excel 控件 | 大图 |
+| :---: | :--- | :--- | :--- | :---: |
+| 01 | 动态柱形图 | 月份滑块 + 播放 / 暂停 | 组合框 · `INDEX / MATCH` | [查看](assets/charts/dyn01.png) |
+| 02 | 动态跑道图 | 月份 / 区域下拉 | 组合框 · `OFFSET` | [查看](assets/charts/dyn02.png) |
+| 03 | 南丁格尔圆环图 | 维度下拉 | 选项按钮 | [查看](assets/charts/dyn03.png) |
+| 04 | 动态组合图 | 4 个预设按钮 + 图例 | 三个复选框 | [查看](assets/charts/dyn04.png) |
+| 05 | 透视表切片器 | 部门下拉 | 切片器 | [查看](assets/charts/dyn05.png) |
+| 06 | VBA 动态玉玦图 | 近 7 / 30 天切换 | VBA 宏按钮 | [查看](assets/charts/dyn06.png) |
+| 07 | 动态滑珠图 | 指标下拉 | 表单控件 | [查看](assets/charts/dyn07.png) |
+
+<details>
+<summary><b>展开：这套交互是怎么做出来的</b></summary>
+
+- **从 `.xlsm` 反推逻辑** — 解包 OOXML，读取工作表、公式、定义名称、控件与 VBA，还原「控件 → 单元格 → `INDEX / VLOOKUP / OFFSET` → 图表数据」链路
+- **Plotly 原生交互** — `updatemenus` 下拉、`sliders` + `frames` 动画、图例开关、hover 模板与 `scrollZoom`，不依赖 Python 内核常驻
+- **单文件自包含** — 内联 Plotly.js（约 4.8 MB），无 CDN、无后端；Jupyter 输出区禁用脚本时会自动显示静态预览图兜底
+- **离线也能用** — 双击 `dashboard.html` 即可，放进 GitHub Pages 后还能在线访问
+
+</details>
+
+> [!TIP]
+> 在线演示需开启 **GitHub Pages**：`Settings → Pages → Deploy from a branch → main / (root)`。上方按钮届时指向 `https://luoxi-13.github.io/bigdigital-visual/`。
+
+---
+
 <a name="index"></a>
 ## 🧩 图表类型索引
 
@@ -101,8 +159,8 @@
 ## 🚀 快速开始
 
 ```bash
-git clone <your-repo-url>
-cd 数据可视化
+git clone https://github.com/luoxi-13/bigdigital-visual.git
+cd bigdigital-visual
 pip install pillow numpy jupyter
 jupyter notebook
 ```
@@ -111,6 +169,7 @@ jupyter notebook
 2. `Kernel → Restart & Run All`，即可看到 10 张内嵌图表
 3. 也可以只运行单个 Cell —— 每个 Cell 完全独立，互不依赖
 4. 运行后会在当前目录生成对应的 PNG 成品图
+5. 第三章打开 `第三章 动态图表.ipynb`，`Run All` 后每个 Cell 会生成可交互的 HTML；双击 `dashboard.html` 即可离线查看全部 7 张交互图
 
 > [!NOTE]
 > 字体默认读取 Windows 的微软雅黑 / 等线（`C:/Windows/Fonts/`），代码内已带 macOS 苹方、Linux 文泉驿微米黑的候选路径。若在其他系统运行后出现中文方框，把 Cell 里的 `P = 'C:/Windows/Fonts/'` 换成你的中文字体目录即可。
@@ -121,20 +180,26 @@ jupyter notebook
 ## 🗂 目录结构
 
 ```text
-数据可视化/
+bigdigital-visual/
 ├── README.md                    ← 你正在看的页面
+├── index.html                   GitHub Pages 入口（单文件自包含交互面板）
+├── dashboard.html               同上，也可通过 /dashboard.html 访问
+├── .nojekyll                    让 Pages 跳过 Jekyll 构建
 ├── assets/
 │   ├── banner.png               主视觉
 │   ├── overview.jpg             30 图作品总览墙
 │   ├── featured.jpg             4 图精选特写
+│   ├── dynamic-overview.jpg     第三章 7 图拼图
 │   ├── gallery-01.jpg           图集 01–10
 │   ├── gallery-02.jpg           图集 11–20
 │   ├── gallery-03.jpg           图集 21–30
 │   └── charts/
 │       ├── 01.png … 30.png      30 张原始大图（单图可点开）
+│       └── dyn01.png … dyn07.png  第三章 7 张原始大图
 ├── 第二章（1-10）.ipynb          Chart 01 – 10
 ├── 第二章（10-20）.ipynb         Chart 11 – 20
-└── 第二章（20-30）.ipynb         Chart 21 – 30
+├── 第二章（20-30）.ipynb         Chart 21 – 30
+└── 第三章 动态图表.ipynb         第三章 · 7 张交互图表
 ```
 
 ---
