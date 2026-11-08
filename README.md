@@ -15,7 +15,7 @@
 
 **用 Pillow 一笔一画绘制的 30 张深蓝商务图表 · 逐像素对齐参考图 · 每个 Cell 独立可运行**
 
-[作品总览](#overview) · [精选特写](#featured) · [分章图集](#gallery) · [**在线交互演示 ↗**](https://luoxi-13.github.io/bigdigital-visual/) · [快速开始](#start) · [实现要点](#how)
+[作品总览](#overview) · [精选特写](#featured) · [分章图集](#gallery) · [**在线交互演示 ↗**](https://luoxi-13.github.io/bigdigital-visual/) · [**统计局交互大屏 ↗**](https://luoxi-13.github.io/bigdigital-visual/stats/) · [快速开始](#start) · [实现要点](#how)
 
 </div>
 
@@ -256,6 +256,29 @@ bigdigital-visual/
 | 30 | 达成率同比去年 | 直角进度条 | [查看](assets/charts/30.png) |
 
 </details>
+
+---
+
+<a name="stats"></a>
+## 🏛️ 国家统计局 · 交互式数据大屏
+
+[![Open Statistics Dashboards](https://img.shields.io/badge/Open%20Dashboards-3%20%E5%A4%A7%E5%B1%8F-FFC000?style=for-the-badge&logo=github&logoColor=1A1E43)](https://luoxi-13.github.io/bigdigital-visual/stats/)
+
+![国家统计局 · 交互式大屏预览](stats-overview.jpg)
+
+> 在线入口：**https://luoxi-13.github.io/bigdigital-visual/stats/**
+
+3 个单文件自包含大屏（内联 ECharts、零外部请求），数据取自国家统计局公开发布数据及中国政府网专题：
+
+| # | 大屏 | 交互 |
+| :---: | :--- | :--- |
+| 01 | [国民经济核算 · 季度数据驾驶舱](https://luoxi-13.github.io/bigdigital-visual/stats/01_gdp.html) | 季度时间轴、当季值 / 累计值切换、播放、重置 |
+| 02 | [价格运行 · CPI / PPI 月度监测](https://luoxi-13.github.io/bigdigital-visual/stats/02_price.html) | 月度时间轴、当月 / 累计口径切换、播放、重置 |
+| 03 | [民生与经济运行 · 2025 前三季度全景](https://luoxi-13.github.io/bigdigital-visual/stats/03_livelihood.html) | KPI 点击聚焦、维度轮播、名义 / 实际值切换 |
+
+> 在 GitHub 仓库里直接点 `.html` 只会显示源码（GitHub 不执行页面脚本），请点击上方 **github.io** 链接查看交互效果；也可以下载后双击本地 HTML 离线打开。
+
+> Python 复现版：[国家统计局交互式大屏.ipynb](<国家统计局交互式大屏.ipynb>) · 4 个 Cell，Jupyter `Run All` 逐字节生成以上 3 屏与入口页（本地运行需同目录 `echarts.min.js`）。
 
 ---
 
