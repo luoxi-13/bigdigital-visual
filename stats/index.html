@@ -14,10 +14,13 @@ footer{margin-top:38px;font-size:11.5px;color:#9aabb8;line-height:1.9;border-top
 @media(max-width:800px){.cards{grid-template-columns:1fr}.wrap{padding:32px 18px}}
 </style></head><body><div class="wrap"><a class="back" href="../">← 返回第三章交互面板</a>
 <h1>国家统计局 · 交互式数据大屏</h1>
-<p class="lead">3 个主题大屏 · 单文件自包含（内联 ECharts，离线可用）· 时间轴 / 播放 / 切换 / 点击联动</p>
+<p class="lead">6 个主题大屏 · 单文件自包含（内联 ECharts，离线可用）· 时间轴 / 播放 / 切换 / 点击联动</p>
 <div class="cards"><a class="card" href="01_gdp.html"><div class="no">01 / DASHBOARD</div><h2>国民经济核算 ·<br/>季度数据驾驶舱</h2><div class="desc">14 个季度 GDP 当季值 / 同比 / 环比、三次产业结构、行业增速与三大需求贡献率。拖动季度时间轴，5 张 KPI 与 6 张图表实时联动。</div><div class="meta">当季值 / 累计值 切换 · 播放 · 重置</div><span class="go">打开大屏 →</span></a>
 <a class="card" href="02_price.html"><div class="no">02 / DASHBOARD</div><h2>价格运行 ·<br/>CPI / PPI 月度监测驾驶舱</h2><div class="desc">2025 年 1–9 月 CPI / PPI 同比与环比、核心 CPI、剪刀差、八大类与主要分项。对照 2024 年同期，月度时间轴联动 KPI 与走势图。</div><div class="meta">当月值 / 累计口径 切换 · 播放 · 重置</div><span class="go">打开大屏 →</span></a>
-<a class="card" href="03_livelihood.html"><div class="no">03 / DASHBOARD</div><h2>民生与经济运行 ·<br/>2025 前三季度全景驾驶舱</h2><div class="desc">就业、居民收入、社零、规上工业、投资与外贸全景。点击 KPI 卡片或柱体聚焦，播放键自动轮换维度，含城乡收入与分组失业率。</div><div class="meta">名义值 / 实际值 切换 · 播放 · 重置</div><span class="go">打开大屏 →</span></a></div>
-<footer>数据来源：国家统计局（www.stats.gov.cn、data.stats.gov.cn）及中国政府网 2025 年前三季度经济数据专题。<br/>
-GDP 绝对额按现价计算、增速按不变价计算；CPI / PPI 为全国涨跌幅；所有页面均为静态自包含 HTML，可直接双击打开或部署到 GitHub Pages。</footer>
+<a class="card" href="03_livelihood.html"><div class="no">03 / DASHBOARD</div><h2>民生与经济运行 ·<br/>2025 前三季度全景驾驶舱</h2><div class="desc">就业、居民收入、社零、规上工业、投资与外贸全景。点击 KPI 卡片或柱体聚焦，播放键自动轮换维度，含城乡收入与分组失业率。</div><div class="meta">名义值 / 实际值 切换 · 播放 · 重置</div><span class="go">打开大屏 →</span></a>
+<a class="card" href="04_education.html"><div class="no">04 / DECADE</div><h2>中国教育十年 ·<br/>2014—2023</h2><div class="desc">普通本专科与研究生招生、在校生规模、高等教育毛入学率、义务教育巩固率。拖动年份时间轴，KPI 与 6 张图表同步联动，可切「当年值 / 同比」。</div><div class="meta">招生 / 在校生 · 普及化进程 · 播放 · 重置</div><span class="go">打开大屏 →</span></a>
+<a class="card" href="05_tourism.html"><div class="no">05 / DECADE</div><h2>中国旅游业十年 ·<br/>2015—2024</h2><div class="desc">国内出游人次、总花费、人均每次花费与相对 2019 年的恢复度。2019 年 60.1 亿人次峰值、2020—2022 年断崖、2023 年反弹都落在同一条时间轴上。</div><div class="meta">人次 / 花费 双轴 · 城乡构成 · 播放 · 重置</div><span class="go">打开大屏 →</span></a>
+<a class="card" href="06_industry.html"><div class="no">06 / DECADE</div><h2>中国工业十年 ·<br/>2014—2023</h2><div class="desc">全部工业增加值、规上工业增速、粗钢产量、发电量与规上工业利润。增速中枢从 8% 降到 4% 左右，2020 与 2021 两个极值一眼可见。</div><div class="meta">增加值 / 增速 · 分门类结构 · 播放 · 重置</div><span class="go">打开大屏 →</span></a></div>
+<footer>数据来源：国家统计局（www.stats.gov.cn、data.stats.gov.cn）历年《国民经济和社会发展统计公报》、中国政府网 2025 年前三季度经济数据专题、教育部《全国教育事业发展统计公报》、文化和旅游部《文化和旅游发展统计公报》。<br/>
+01—03 屏为季度 / 月度口径；04—06 屏为年度口径，部分指标按历年公报整理为可比约数，仅用于教学演示，不作为统计引用依据。所有页面均为静态自包含 HTML，可直接双击打开或部署到 GitHub Pages；04—06 屏可由 <code>stats/build_decade_dashboards.py</code> 重新生成。</footer>
 </div></body></html>
